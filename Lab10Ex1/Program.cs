@@ -1,7 +1,19 @@
 ﻿using Azure.Core;
 using Lab10Ex1.Models;
 
-Seed();
+//Seed();
+
+static void ShowStudentsAlphabetically()
+{
+    using var ctx = new StudentsDbContext();
+
+    foreach (var student in ctx.Students.OrderBy(s=>s.lastName))
+    {
+        Console.WriteLine(student);
+    }
+}
+
+ShowStudentsAlphabetically();
 
 static void Seed()
 {
